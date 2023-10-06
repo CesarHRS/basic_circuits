@@ -1,11 +1,15 @@
 # basic_circuits
 
 The purpose of this repository is to provide an installation and usage guide for the Quartus II software, accompanied by
-the resolution of various circuits in Verilog. Quartus II is a fundamental tool in disciplines such as Digital Systems 
-for Computing, Computer Organization and Architecture I, and Computer Organization and Architecture II.
+the resolution of various circuits in Verilog and a introduction to Verilog HDL. Quartus II is a fundamental tool in 
+disciplines such as Digital Systems for Computing, Computer Organization and Architecture I, and Computer Organization 
+and Architecture II.
+
+* You can acess the Verilog Introduction Guide clicking [here](verilog_basics/verilog_introduction.MD)
 
 * Note: We specifically use Quartus II version 13.01 sp because this is the latest version of Quartus that supports 
 Cyclone II FPGAs, which we have on campus for use.
+
 
 # Installation:
 

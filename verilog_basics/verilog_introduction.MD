@@ -111,3 +111,90 @@ endmodule
 ```
 
 ### Data type declaration
+
+There are two types of data, nets and variable.
+* Nets represent physical interconnections between functional blocks, they need to be driver continuously and do not 
+store values
+* Variables are used to store data, very similar to variables in high-level languages like C. They may be Synthesized
+into flip-flops or registers or even combinatorial nodes
+
+Variables data types need to be assigned inside a procedure, a task or a function 
+
+
+| Net Data Type | What it represent    | 
+|---------------|----------------------|
+| wire          | node or a connection |
+| tri           | tri-state node       | 
+| supply0       | logic 0              |
+| supply1       | logic 1              |
+
+Examples of declaration:
+
+```verilog
+wire [7..0] out;
+tri enable;
+```
+
+| Variable Data Type | What it represent                 | 
+|--------------------|-----------------------------------|
+| reg                | unsigned variable of any bit size |
+| integer            | signed 32bit variable             | 
+| real               | no synthesis support              |
+| time               | no synthesis support              |
+| realtime           | no synthesis support              |
+
+* Observation, you can use **reg signed** for a signed implementation
+* **real**, **time** and **realtime** are for simulation purposes only
+
+Examples of declaration:
+
+```verilog
+reg [7..0] N;
+integer count;
+```
+
+### Module Instantiation
+
+Once a module is declared, it can be instantiated at a higher level module by using the following syntax:
+
+```verilog
+<component_name> #<delay> <instance_name> (port_list);
+```
+
+* **<component_name>** is the module name of your lower-level component
+* **#<delay>** is used if you wish to express time delay through the module (simulation only)
+* **<instance_name>** is the name of the component (needs to be unique), applied to the component instance
+* **(port_list)** is a list of signals you want to connect to the inputs or outputs of the lower level component
+
+By instantiating modules, you can create designs with multiple levels of hierarchy to achieve easies maintainability.
+Modern designs typically have many layers per hierarchy.
+
+When connecting signals to a lower level module port, they can be defined by **ordered list** or by **name**
+
+#### Ordered List
+
+In this model, you are connecting higher level signals to a lower level module ports by listing them in the same order 
+as the port list are in the lower level module declaration. It is important to remember that the order **does matter**
+in this case. 
+* Only used in modules with few ports
+
+#### Name
+
+Ports are connected by defining their name (you name which wires connects with each port), the order of the ports
+connected does not matter, and you may leave empty if you do not want to connect to a port.
+* This is the preferred method because it makes easier to see how the connections are made without having to dive into
+the declaration of the lower level module
+
+### Port Connections Rules 
+
+Connections into and out of modules must obey certain rules. Ports of a module and the connections to a module can only
+be declared of certain data types. When declaring a module, signals of a variable type can not be used as inputs or 
+inout ports, while the net data type can be used in all situations.
+Implicitly, inputs and outputs are default to wires if there type is not specified. When connecting a signal to a lower 
+level module port, variables can not be connected to the outputs or inout of the module, while the net data type can be 
+used in all situations.
+
+### Parameters
+
+Parameters are used to associate a value with a symbolic name. 
+
