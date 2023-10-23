@@ -21,20 +21,20 @@ Windows and Linux (Arch-based and Debian-based systems).
 These instructions were tested for Ubuntu 22.04 LTS, but they may or may not work in previous or next versions or in other Debian-based distributions.
 First, start the download [Quartus II 13.01.sp](https://www.intel.com/content/www/us/en/software-kit/711790/intel-quartus-ii-web-edition-design-software-version-13-0sp1-for-linux.html). Then, install the additional dependencies:
 
-> sudo apt install -y libstdc++6:i386 libc6:i386 libx11-dev:i386 libxext-dev:i386 libxau-dev:i386 libxdmcp-dev:i386 fontconfig:i386 expat:i386 libxrender1:i386 libsm6:i386
+```sudo apt install -y libstdc++6:i386 libc6:i386 libx11-dev:i386 libxext-dev:i386 libxau-dev:i386 libxdmcp-dev:i386 fontconfig:i386 expat:i386 libxrender1:i386 libsm6:i386```
 
 We will also need an additional dependency that is not present in the repositories:
 
-> wget https://launchpadlibrarian.net/562068737/libpng12-0_1.2.54-1ubuntu1.1+1~ppa0~impish0_amd64.deb
+```wget https://launchpadlibrarian.net/562068737/libpng12-0_1.2.54-1ubuntu1.1+1~ppa0~impish0_amd64.deb```
 
 Make sure to be in the directory where you want to install the library before running this command.
 
-> dpkg -x libpng12-0_1.2.54-1ubuntu1.1+1~ppa0~impish0_amd64.deb libpng12
+```dpkg -x libpng12-0_1.2.54-1ubuntu1.1+1~ppa0~impish0_amd64.deb libpng12```
 
 You can delete the ```.deb``` package after that.
 Now we need to put this library in the PATH environment variable. Put the following in the ```.profile``` or ```.bashrc``` file in your home directory.
 
-> export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:{The path where you executed the dpkg command}/libpng12/usr/lib/x86_64-linux-gnu
+```export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:{The path where you executed the dpkg command}/libpng12/usr/lib/x86_64-linux-gnu```
 
 Once this is done, we need to configure the USB-Blaster drivers to use the FPGA. Open or create the file ```/etc/udev/rules.d/altera-usb-blaster.rules``` and put the following there:
 
