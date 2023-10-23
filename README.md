@@ -45,7 +45,7 @@ Once this is done, we need to configure the USB-Blaster drivers to use the FPGA.
 
 Once the download is finished, extract the files and run ```setup.sh``` to install
 
-For troubleshooting or other questions, check [these]({https://wiki.sj.ifsc.edu.br/index.php/Configura%C3%A7%C3%A3o_da_USB_para_programa%C3%A7%C3%A3o_do_FPGA_via_JTAG) [sources](https://www.rocketboards.org/foswiki/Documentation/UsingUSBBlasterUnderLinux)
+For troubleshooting or other questions, check [these](https://wiki.sj.ifsc.edu.br/index.php/Configura%C3%A7%C3%A3o_da_USB_para_programa%C3%A7%C3%A3o_do_FPGA_via_JTAG) [sources](https://www.rocketboards.org/foswiki/Documentation/UsingUSBBlasterUnderLinux)
 
 ## Windows
 
