@@ -99,10 +99,10 @@ While declaring a bus, it is needed to add brackets containing the bus size, exa
 Example of a declaration of an ULA:
 ```verilog
 module ALU(
-    input [31:0] A,         // 31-bit input A
-    input [31:0] B,         // 31-bit input B
+    input [31:0] A,         // 32-bit input A
+    input [31:0] B,         // 32-bit input B
     input [3:0] function,   // 4-bit control signals for operation selection
-    output reg [31:0] result,  // 31-bit result
+    output reg [31:0] result,  // 32-bit result
     output reg Z,           // Zero flag
     output reg N            // Negative flag
 );
